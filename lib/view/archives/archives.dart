@@ -4,13 +4,15 @@ import '../archives_daily/archives_daily.dart';
 import '../archives_fixtures/archives_fixtures.dart';
 
 class Archives extends StatelessWidget {
+  const Archives({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
         centerTitle: true,
-        title: Text(style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold), 'الارشيف'),
+        title: const Text(style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold), 'الارشيف'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -26,9 +28,9 @@ class Archives extends StatelessWidget {
                 ),
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (builder) => ArchivesDaily()));
+                    Navigator.push(context, MaterialPageRoute(builder: (builder) => const ArchivesDaily()));
                   },
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
@@ -40,7 +42,7 @@ class Archives extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               Container(
                 height: 70,
                 decoration: BoxDecoration(
@@ -49,9 +51,9 @@ class Archives extends StatelessWidget {
                 ),
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (builder) => ArchivesFixtures()));
+                    Navigator.push(context, MaterialPageRoute(builder: (builder) => const ArchivesFixtures()));
                   },
-                  child: Row(
+                  child: const Row(
                     children: [
                       Expanded(
                         child: Center(

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dropdown/flutter_dropdown.dart';
 
 class Fixtures extends StatefulWidget {
+  const Fixtures({super.key});
+
 
   @override
   State<Fixtures> createState() => _FixturesState();
@@ -22,14 +24,14 @@ class _FixturesState extends State<Fixtures> {
           builder: (context, child) {
             return Theme(
               data: Theme.of(context).copyWith(
-                colorScheme: ColorScheme.light(
+                colorScheme: const ColorScheme.light(
                   primary: Colors.blue, // <-- SEE HERE
                   onPrimary: Colors.white, // <-- SEE HERE
                   onSurface: Colors.black, // <-- SEE HERE
                 ),
                 textButtonTheme: TextButtonThemeData(
                   style: TextButton.styleFrom(
-                    primary: Colors.black, // button text color
+                    foregroundColor: Colors.black, // button text color
                   ),
                 ),
               ),
@@ -43,7 +45,7 @@ class _FixturesState extends State<Fixtures> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
+        title: const Text(
             style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.white),
             'التركيبات'),
       ),
@@ -52,7 +54,7 @@ class _FixturesState extends State<Fixtures> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              SizedBox(height: 60,),
+              const SizedBox(height: 60,),
               TextFormField(
                 keyboardType: TextInputType.text,
                 onFieldSubmitted: (String value) {
@@ -66,18 +68,18 @@ class _FixturesState extends State<Fixtures> {
                     fillColor: Colors.grey[200],
                     labelStyle: TextStyle(color: Colors.grey[700],),
                     hintText: 'اسم المريض',
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.person,
                       color: Colors.blue,
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blue),
+                      borderSide: const BorderSide(color: Colors.blue),
                       borderRadius: BorderRadius.circular(50.0),
                     ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50))),
               ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               Row(
                 children: [
                   Expanded(
@@ -86,26 +88,26 @@ class _FixturesState extends State<Fixtures> {
                         selectDate(context);
                       },
                       child: Container(
-                        margin: EdgeInsets.all(2),
+                        margin: const EdgeInsets.all(2),
                         height: 60,
                         decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(20)),
-                        child: Center(
+                        child: const Center(
                           child: Text(style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white), 'تاريخ استلام التركيبة'),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(width: 10,),
+                  const SizedBox(width: 10,),
                   Expanded(
                     child: InkWell(
                       onTap: () {
                         selectDate(context);
                       },
                       child: Container(
-                        margin: EdgeInsets.all(2),
+                        margin: const EdgeInsets.all(2),
                         height: 60,
                         decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(20)),
-                        child: Center(
+                        child: const Center(
                           child: Text(style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white), 'تاريخ الطبعة'),
                         ),
                       ),
@@ -113,7 +115,7 @@ class _FixturesState extends State<Fixtures> {
                   ),
                 ],
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               Row(
                 children: [
                   Expanded(
@@ -124,9 +126,9 @@ class _FixturesState extends State<Fixtures> {
                         child: DropDown(
                           // isExpanded: true,
                           showUnderline: false,
-                          items: ["د/ محمد وحيد ", "د/ محمد خالد القاضي", "د/ حسام ابو الحلقان", "د/ لمياء خليفة", "د/ هبة ممدوح"],
-                          hint: Text(style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white), 'الدكتور'),
-                          icon: Icon(
+                          items: const ["د/ محمد وحيد ", "د/ محمد خالد القاضي", "د/ حسام ابو الحلقان", "د/ لمياء خليفة", "د/ هبة ممدوح"],
+                          hint: const Text(style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white), 'الدكتور'),
+                          icon: const Icon(
                             size: 35,
                             Icons.expand_more,
                             color: Colors.white,
@@ -135,7 +137,7 @@ class _FixturesState extends State<Fixtures> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 10,),
+                  const SizedBox(width: 10,),
                   Expanded(
                     child: TextFormField(
                       keyboardType: TextInputType.text,
@@ -151,7 +153,7 @@ class _FixturesState extends State<Fixtures> {
                           labelStyle: TextStyle(color: Colors.grey[700],),
                           hintText: 'اسم المعمل ',
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue),
+                            borderSide: const BorderSide(color: Colors.blue),
                             borderRadius: BorderRadius.circular(50.0),
                           ),
                           border: OutlineInputBorder(
@@ -160,8 +162,8 @@ class _FixturesState extends State<Fixtures> {
                   ),
                 ],
               ),
-              SizedBox(height: 30,),
-              ElevatedButton(onPressed: (){}, child: Text(
+              const SizedBox(height: 30,),
+              ElevatedButton(onPressed: (){}, child: const Text(
 
                   style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,),
                   'تسجيل'))

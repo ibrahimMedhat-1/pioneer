@@ -9,7 +9,7 @@ class ArchivesFixtures extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.blue,
           centerTitle: true,
-          title: Text(
+          title: const Text(
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               'الارشيف'),
         ),
@@ -27,13 +27,13 @@ class ArchivesFixtures extends StatelessWidget {
     print(value);
     },
     decoration: InputDecoration(
-    hintStyle:TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.bold),
+    hintStyle:const TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.bold),
     hintText: 'البحث',
-    prefixIcon: Icon(
+    prefixIcon: const Icon(
     Icons.search,
     color: Colors.black,
     ),
-    focusedBorder: OutlineInputBorder(
+    focusedBorder: const OutlineInputBorder(
     borderSide: BorderSide(color: Colors.blue),
     ),
     border: OutlineInputBorder(
@@ -42,16 +42,16 @@ class ArchivesFixtures extends StatelessWidget {
        Center(
             child: Column(children: <Widget>[
               Container(
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Table(
-                    defaultColumnWidth: FixedColumnWidth(300.0),
+                    defaultColumnWidth: const FixedColumnWidth(300.0),
                     border: TableBorder.all(
                         color: Colors.black,
                         style: BorderStyle.solid,
                         width: 2),
-                    children: [
+                    children: const [
                       TableRow( children: [
                         Column(children:[Text('الدكتور', style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold))]),
                         Column(children:[Text('اسم المعمل', style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold))]),
