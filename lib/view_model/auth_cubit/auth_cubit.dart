@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,9 +18,19 @@ class AuthCubit extends Cubit<AuthState> {
     isLoading = true;
     emit(ChangeStateToLoading());
     FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((value) {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (builder) => const HomeScreen()));
+      FirebaseFirestore.instance.collection('login').doc(email).get().then((value) {
+        if (value.data()!['type'] == 'reception') {
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (builder) => const HomeScreen()));
+        } else {
+          print('error');
+          isLoading = false;
+
+          emit(ChangeStateToLoading());
+        }
+      });
     }).catchError((onError) {
       isLoading = false;
+      print(onError);
       emit(ChangeStateToLoading());
     });
   }
