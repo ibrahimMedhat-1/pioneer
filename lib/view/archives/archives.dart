@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:pioneer/archives_daily/archives_daily.dart';
-import 'package:pioneer/archives_fixtures/archives_fixtures.dart';
+
+import '../archives_daily/archives_daily.dart';
+import '../archives_fixtures/archives_fixtures.dart';
 
 class Archives extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
         centerTitle: true,
-        title: Text(
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-            'الارشيف'),
+        title: Text(style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold), 'الارشيف'),
       ),
-      body:
-      Padding(
+      body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Center(
           child: Column(
@@ -36,10 +33,7 @@ class Archives extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Center(
-                          child: Text(style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 23), 'المواعيد'),
+                          child: Text(style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23), 'المواعيد'),
                         ),
                       ),
                     ],

@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pioneer/archives/archives.dart';
-import 'package:pioneer/booking/booking.dart';
-import 'package:pioneer/daily_report/daily_report.dart';
-import 'package:pioneer/expenses/expenses.dart';
 
+import '../archives/archives.dart';
+import '../booking/booking.dart';
+import '../daily_report/daily_report.dart';
+import '../expenses/expenses.dart';
 import '../fixtures/fixtures.dart';
+
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
-          title: Text(
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-              'Home Page'),
+          title: Text(style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold), 'Home Page'),
         ),
         body: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -22,8 +20,7 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50.0)),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(50.0)),
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   child: Image(image: AssetImage('assits/pioneer.jpg')),
                 ),
@@ -76,10 +73,7 @@ class HomeScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Center(
-                                  child: Text(style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 23), 'المواعيد'),
+                                  child: Text(style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23), 'المواعيد'),
                                 ),
                               ),
                             ],
@@ -138,10 +132,7 @@ class HomeScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Center(
-                                  child: Text(style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 23), 'التركيبات '),
+                                  child: Text(style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23), 'التركيبات '),
                                 ),
                               ),
                             ],
@@ -168,10 +159,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Center(
-                            child: Text(style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 23), 'الارشيف '),
+                            child: Text(style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23), 'الارشيف '),
                           ),
                         ),
                       ],
