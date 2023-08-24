@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "520181459755",
+    "project_id": "dentist-system-cbc47",
+    "storage_bucket": "dentist-system-cbc47.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520181459755:android:bfa2bb0817a45a727df36e",
+        "android_client_info": {
+          "package_name": "com.example.pioneer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "520181459755-16c7qcoshcu8rflbudqukbaia98vvbrq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxZDR_PXBd25Pomk-yhdnPY7Lm16dFWPY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "520181459755-16c7qcoshcu8rflbudqukbaia98vvbrq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
