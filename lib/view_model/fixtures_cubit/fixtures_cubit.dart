@@ -15,7 +15,7 @@ class FixturesCubit extends Cubit<FixturesState> {
   bool isLoading = false;
   String stringPrintDate = 'تاريخ الطبعه';
   String stringReceiveDate = 'تاريخ استلام التركيبه';
-
+  String? docId;
   void changePrintDate(value) {
     stringPrintDate = value;
     emit(ChangePrintDate());
@@ -43,29 +43,29 @@ class FixturesCubit extends Cubit<FixturesState> {
       'receiveDate': receiveDate,
       'labName': labName,
       'drName': drName,
-    }).then((value) {
-      String docId = value.id;
-      FirebaseFirestore.instance.collection('doctors').doc(drName).collection('fixtures').doc(docId).update({'id': docId});
-      emit(FixtureAddedSuccessfully());
-    }).catchError((onError) {
-      isLoading = false;
-      emit(FixtureAddedSuccessfully());
-    });
-    FirebaseFirestore.instance.collection('allDates').doc(drName).collection('fixtures').add({
-      'patientName': patientName,
-      'printDate': printDate,
-      'receiveDate': receiveDate,
-      'labName': labName,
-      'drName': drName,
-    }).then((value) {
-      String docId = value.id;
-      FirebaseFirestore.instance.collection('allDates').doc(drName).collection('fixtures').doc(docId).update({'id': docId});
-      isLoading = false;
-      patientNameController.text = '';
-      labNameController.text = '';
-      stringPrintDate = 'تاريخ الطبعه';
-      stringReceiveDate = 'تاريخ استلام التركيبه';
+    }).then((value) async {
+      docId = value.id;
+      await FirebaseFirestore.instance.collection('doctors').doc(drName).collection('fixtures').doc(docId).update({'id': docId}).then((value) {
+        FirebaseFirestore.instance.collection('allDates').doc(drName).collection('fixtures').doc(docId).set({
+          'patientName': patientName,
+          'printDate': printDate,
+          'id': docId,
+          'receiveDate': receiveDate,
+          'labName': labName,
+          'drName': drName,
+        }).then((value) {
+          isLoading = false;
+          patientNameController.text = '';
+          labNameController.text = '';
+          stringPrintDate = 'تاريخ الطبعه';
+          stringReceiveDate = 'تاريخ استلام التركيبه';
 
+          emit(FixtureAddedSuccessfully());
+        }).catchError((onError) {
+          isLoading = false;
+          emit(FixtureAddedSuccessfully());
+        });
+      });
       emit(FixtureAddedSuccessfully());
     }).catchError((onError) {
       isLoading = false;

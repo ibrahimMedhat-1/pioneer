@@ -13,6 +13,7 @@ class BookingCubit extends Cubit<BookingState> {
   String? drNameValue;
   bool isLoading = false;
   String stringDate = 'Date';
+  String? docId;
   void changeDate(value) {
     stringDate = value;
     emit(ChangeDate());
@@ -33,25 +34,29 @@ class BookingCubit extends Cubit<BookingState> {
       'phoneNo': patientPhone,
       'drName': drName,
       'date': date,
-    }).then((value) {
-      String docId = value.id;
-      FirebaseFirestore.instance.collection('doctors').doc(drName).collection('patients').doc(docId).update({'id': docId});
-      patientNameController.text = '';
-      patientPhoneController.text = '';
-      isLoading = false;
-      emit(PatientAddedSuccessfully());
-    }).catchError((onError) {
-      isLoading = false;
-      emit(PatientAddedSuccessfully());
-    });
-    FirebaseFirestore.instance.collection('allDates').doc(drName).collection('patients').add({
-      'name': patientName,
-      'phoneNo': patientPhone,
-      'drName': drName,
-      'date': date,
-    }).then((value) {
-      String docId = value.id;
-      FirebaseFirestore.instance.collection('allDates').doc(drName).collection('patients').doc(docId).update({'id': docId});
+      'price': int.parse('0'),
+      'fileNo': int.parse('0'),
+    }).then((value) async {
+      docId = value.id;
+      await FirebaseFirestore.instance.collection('doctors').doc(drName).collection('patients').doc(docId).update({'id': docId}).then((value) {
+        FirebaseFirestore.instance.collection('allDates').doc(drName).collection('patients').doc(docId).set({
+          'name': patientName,
+          'phoneNo': patientPhone,
+          'drName': drName,
+          'date': date,
+          'id': docId,
+          'price': int.parse('0'),
+          'fileNo': int.parse('0'),
+        }).then((value) {
+          patientNameController.text = '';
+          patientPhoneController.text = '';
+          isLoading = false;
+          emit(PatientAddedSuccessfully());
+        }).catchError((onError) {
+          isLoading = false;
+          emit(PatientAddedSuccessfully());
+        });
+      });
       patientNameController.text = '';
       patientPhoneController.text = '';
       isLoading = false;
