@@ -66,14 +66,14 @@ class PricePage extends StatelessWidget {
           ElevatedButton(
               onPressed: () {
                 FirebaseFirestore.instance.collection('doctors').doc(patientModel.drName).collection('patients').doc(patientModel.id).update({
-                  'price': priceController.text,
-                  'fileNo': fileNoController.text,
+                  'price': int.parse(priceController.text),
+                  'fileNo': int.parse(fileNoController.text),
                 }).then((value) {
                   Navigator.pop(context);
                 });
-                FirebaseFirestore.instance.collection('allDates').doc(patientModel.drName).collection('patients').doc(patientModel.id).update({
-                  'price': priceController.text,
-                  'fileNo': fileNoController.text,
+                FirebaseFirestore.instance.collection('allDates').doc(patientModel.id).update({
+                  'price': int.parse(priceController.text),
+                  'fileNo': int.parse(fileNoController.text),
                 }).then((value) {
                   Navigator.pop(context);
                 });
