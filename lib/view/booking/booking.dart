@@ -15,7 +15,6 @@ class _BookingState extends State<Booking> {
 
   @override
   Widget build(BuildContext context) {
-    DateTime? dateTime;
     void selectDate(context) async {
       await showDatePicker(
           context: context,
@@ -40,7 +39,7 @@ class _BookingState extends State<Booking> {
             );
           }).then((value) {
         setState(() {
-          stringDate = '${value!.year}-${value!.month}-${value!.day}';
+          stringDate = '${value!.year}-${value.month}-${value.day}';
         });
       });
     }
@@ -148,7 +147,7 @@ class _BookingState extends State<Booking> {
                               child: Center(
                                 child: Text(
                                   stringDate,
-                                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),
+                                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),
                                 ),
                               ),
                             ),

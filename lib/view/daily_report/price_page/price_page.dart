@@ -4,8 +4,9 @@ import 'package:pioneer/model/patient_model.dart';
 
 class PricePage extends StatelessWidget {
   final PatientModel patientModel;
-  TextEditingController priceController = TextEditingController();
-  TextEditingController fileNoController = TextEditingController();
+  final TextEditingController priceController = TextEditingController();
+  final TextEditingController fileNoController = TextEditingController();
+
   PricePage({super.key, required this.patientModel});
 
   @override

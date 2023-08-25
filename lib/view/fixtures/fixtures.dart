@@ -39,7 +39,7 @@ class _FixturesState extends State<Fixtures> {
               child: child!,
             );
           }).then((value) {
-        dateTime = '${value!.year}-${value!.month}-${value!.day}';
+        dateTime = '${value!.year}-${value.month}-${value.day}';
       });
       return dateTime!;
     }
@@ -98,7 +98,8 @@ class _FixturesState extends State<Fixtures> {
                               height: 60,
                               decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(20)),
                               child: Center(
-                                child: Text(style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white), cubit.stringPrintDate),
+                                child: Text(
+                                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white), cubit.stringPrintDate),
                               ),
                             ),
                           ),
@@ -116,8 +117,8 @@ class _FixturesState extends State<Fixtures> {
                               height: 60,
                               decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(20)),
                               child: Center(
-                                child:
-                                    Text(style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white), cubit.stringReceiveDate),
+                                child: Text(
+                                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white), cubit.stringReceiveDate),
                               ),
                             ),
                           ),

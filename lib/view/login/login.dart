@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pioneer/view_model/auth_cubit/auth_cubit.dart';
 
-import '../home/home.dart';
-
 class LoginScreen extends StatelessWidget {
   final GlobalKey<FormState> formKey = GlobalKey();
   final TextEditingController emailController = TextEditingController();

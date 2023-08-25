@@ -15,7 +15,7 @@ void main() async {
     providers: [
       BlocProvider<AuthCubit>(create: (context) => AuthCubit()),
     ],
-    child: MaterialApp(
+    child: const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     ),

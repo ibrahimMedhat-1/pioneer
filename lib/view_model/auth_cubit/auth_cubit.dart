@@ -8,8 +8,10 @@ part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
+
   static AuthCubit get(context) => BlocProvider.of(context);
   bool isLoading = false;
+
   void login({
     context,
     required String email,
@@ -22,7 +24,6 @@ class AuthCubit extends Cubit<AuthState> {
         if (value.data()!['type'] == 'reception') {
           Navigator.pushReplacement(context, MaterialPageRoute(builder: (builder) => const HomeScreen()));
         } else {
-          print('error');
           isLoading = false;
 
           emit(ChangeStateToLoading());
@@ -30,7 +31,6 @@ class AuthCubit extends Cubit<AuthState> {
       });
     }).catchError((onError) {
       isLoading = false;
-      print(onError);
       emit(ChangeStateToLoading());
     });
   }

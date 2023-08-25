@@ -35,7 +35,7 @@ class DailyReport extends StatelessWidget {
                         child: DropDown(
                           showUnderline: false,
                           items: const ["د/ محمد وحيد ", "د/ محمد خالد القاضي", "د/ حسام ابو الحلقان", "د/ لمياء خليفة", "د/ هبة ممدوح"],
-                          hint: Text(style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white), cubit.drNameValue),
+                          hint: Text(style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white), cubit.drNameValue),
                           icon: const Icon(
                             size: 35,
                             Icons.expand_more,

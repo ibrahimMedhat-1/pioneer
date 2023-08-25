@@ -16,6 +16,7 @@ class FixturesCubit extends Cubit<FixturesState> {
   String stringPrintDate = 'تاريخ الطبعه';
   String stringReceiveDate = 'تاريخ استلام التركيبه';
   String? docId;
+
   void changePrintDate(value) {
     stringPrintDate = value;
     emit(ChangePrintDate());

@@ -25,12 +25,6 @@ class ArchivesFixtures extends StatelessWidget {
                       child: Column(children: [
                     TextFormField(
                       keyboardType: TextInputType.text,
-                      onFieldSubmitted: (String value) {
-                        print(value);
-                      },
-                      onChanged: (String value) {
-                        print(value);
-                      },
                       decoration: InputDecoration(
                           hintStyle: const TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
                           hintText: 'البحث',

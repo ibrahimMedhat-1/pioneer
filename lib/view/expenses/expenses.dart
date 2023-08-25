@@ -38,7 +38,7 @@ class _ExpensesState extends State<Expenses> {
               child: child!,
             );
           }).then((value) {
-        dateTime = '${value!.year}-${value!.month}-${value!.day}';
+        dateTime = '${value!.year}-${value.month}-${value.day}';
       });
       return dateTime!;
     }
@@ -114,7 +114,7 @@ class _ExpensesState extends State<Expenses> {
                               height: 65,
                               decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(50)),
                               child: Center(
-                                child: Text(style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white), cubit.stringDate),
+                                child: Text(style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white), cubit.stringDate),
                               ),
                             ),
                           ),

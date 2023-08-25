@@ -14,6 +14,7 @@ class BookingCubit extends Cubit<BookingState> {
   bool isLoading = false;
   String stringDate = 'Date';
   String? docId;
+
   void changeDate(value) {
     stringDate = value;
     emit(ChangeDate());

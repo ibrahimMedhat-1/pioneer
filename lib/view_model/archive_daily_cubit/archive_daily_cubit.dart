@@ -12,7 +12,7 @@ class ArchiveDailyCubit extends Cubit<ArchiveDailyState> {
   static ArchiveDailyCubit get(context) => BlocProvider.of(context);
   List<PatientModel> patients = [];
   List<TableRow> tableRows = [
-    TableRow(children: [
+    const TableRow(children: [
       Column(children: [Text('رقم الملف', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold))]),
       Column(children: [Text('الدكتور', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold))]),
       Column(children: [Text('المبلغ', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold))]),
@@ -20,22 +20,20 @@ class ArchiveDailyCubit extends Cubit<ArchiveDailyState> {
       Column(children: [Text('الاسم', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold))]),
     ]),
   ];
+
   void getAllDates() {
     FirebaseFirestore.instance.collection('allDates').orderBy('date', descending: true).get().then((value) {
-      value.docs.forEach((element) {
-        print(element.data()['name']);
+      for (var element in value.docs) {
         patients.add(PatientModel.fromJson(element.data()));
         setTable();
         emit(GetAllPatientsSuccessfully());
-      });
-    }).catchError((onError) {
-      print(onError);
-    });
+      }
+    }).catchError((onError) {});
   }
 
   void setTable() {
     tableRows = [
-      TableRow(children: [
+      const TableRow(children: [
         Column(children: [Text('رقم الملف', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold))]),
         Column(children: [Text('الدكتور', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold))]),
         Column(children: [Text('المبلغ', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold))]),
@@ -43,15 +41,15 @@ class ArchiveDailyCubit extends Cubit<ArchiveDailyState> {
         Column(children: [Text('الاسم', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold))]),
       ]),
     ];
-    patients.forEach((element) {
+    for (var element in patients) {
       tableRows.add(TableRow(children: [
-        Column(children: [Text(element.fileNo.toString(), style: TextStyle(fontSize: 20.0))]),
-        Column(children: [Text(element.drName.toString(), style: TextStyle(fontSize: 20.0))]),
-        Column(children: [Text(element.price.toString(), style: TextStyle(fontSize: 20.0))]),
-        Column(children: [Text(element.phoneNo.toString(), style: TextStyle(fontSize: 20.0))]),
-        Column(children: [Text(element.name.toString(), style: TextStyle(fontSize: 20.0))]),
+        Column(children: [Text(element.fileNo.toString(), style: const TextStyle(fontSize: 20.0))]),
+        Column(children: [Text(element.drName.toString(), style: const TextStyle(fontSize: 20.0))]),
+        Column(children: [Text(element.price.toString(), style: const TextStyle(fontSize: 20.0))]),
+        Column(children: [Text(element.phoneNo.toString(), style: const TextStyle(fontSize: 20.0))]),
+        Column(children: [Text(element.name.toString(), style: const TextStyle(fontSize: 20.0))]),
       ]));
       emit(GetAllPatientsSuccessfully());
-    });
+    }
   }
 }
