@@ -49,10 +49,23 @@ class BookingCubit extends Cubit<BookingState> {
           'price': int.parse('0'),
           'fileNo': int.parse('0'),
         }).then((value) {
-          patientNameController.text = '';
-          patientPhoneController.text = '';
-          isLoading = false;
-          emit(PatientAddedSuccessfully());
+          FirebaseFirestore.instance.collection('allDatesDoctor').doc(docId).set({
+            'name': patientName,
+            'phoneNo': patientPhone,
+            'drName': drName,
+            'date': date,
+            'id': docId,
+            'price': int.parse('0'),
+            'fileNo': int.parse('0'),
+          }).then((value) {
+            patientNameController.text = '';
+            patientPhoneController.text = '';
+            isLoading = false;
+            emit(PatientAddedSuccessfully());
+          }).catchError((onError) {
+            isLoading = false;
+            emit(PatientAddedSuccessfully());
+          });
         }).catchError((onError) {
           isLoading = false;
           emit(PatientAddedSuccessfully());
