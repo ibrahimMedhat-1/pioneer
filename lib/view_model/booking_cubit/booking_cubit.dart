@@ -40,7 +40,7 @@ class BookingCubit extends Cubit<BookingState> {
     }).then((value) async {
       docId = value.id;
       await FirebaseFirestore.instance.collection('doctors').doc(drName).collection('patients').doc(docId).update({'id': docId}).then((value) {
-        FirebaseFirestore.instance.collection('allDa5tes').doc(docId).set({
+        FirebaseFirestore.instance.collection('allDates').doc(docId).set({
           'name': patientName,
           'phoneNo': patientPhone,
           'drName': drName,
