@@ -76,7 +76,12 @@ class PricePage extends StatelessWidget {
                   'price': int.parse(priceController.text),
                   'fileNo': int.parse(fileNoController.text),
                 }).then((value) {
-                  Navigator.pop(context);
+                  FirebaseFirestore.instance.collection('allDatesDoctor').doc(patientModel.id).update({
+                    'price': int.parse(priceController.text),
+                    'fileNo': int.parse(fileNoController.text),
+                  }).then((value) {
+                    Navigator.pop(context);
+                  });
                 });
               },
               child: const Text(
