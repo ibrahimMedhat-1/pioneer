@@ -32,6 +32,12 @@ class ExpensesCubit extends Cubit<ExpensesState> {
     }).then((value) {
       String docId = value.id;
       FirebaseFirestore.instance.collection('Expenses').doc(docId).update({'id': docId});
+      FirebaseFirestore.instance.collection('ExpensesDoctor').doc(docId).set({
+        'details': details,
+        'price': price,
+        'date': date,
+        'id': docId,
+      });
       detailsController.text = '';
       priceController.text = '';
       stringDate = 'التاريخ';

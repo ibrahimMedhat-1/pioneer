@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pioneer/view/archives_expenses/archives_expenses.dart';
 
 import '../archives_daily/archives_daily.dart';
 import '../archives_fixtures/archives_fixtures.dart';
@@ -64,6 +65,34 @@ class Archives extends StatelessWidget {
                                 fontSize: 22,
                               ),
                               'التركيبات'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 40),
+              Container(
+                height: 70,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: Colors.blue,
+                ),
+                child: MaterialButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (builder) => const ArchiveExpenses()));
+                  },
+                  child: const Row(
+                    children: [
+                      Expanded(
+                        child: Center(
+                          child: Text(
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22,
+                              ),
+                              'المصروفات'),
                         ),
                       ),
                     ],
