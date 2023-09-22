@@ -58,6 +58,7 @@ class FixturesCubit extends Cubit<FixturesState> {
           'receiveDate': receiveDate,
           'labName': labName,
           'drName': drName,
+          'price': price,
         }).then((value) {
           isLoading = false;
           patientNameController.text = '';
