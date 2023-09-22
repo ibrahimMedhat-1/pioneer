@@ -11,6 +11,8 @@ class FixturesCubit extends Cubit<FixturesState> {
 
   TextEditingController patientNameController = TextEditingController();
   TextEditingController labNameController = TextEditingController();
+
+  TextEditingController priceController = TextEditingController();
   String? drNameValue;
   bool isLoading = false;
   String stringPrintDate = 'تاريخ الطبعه';
@@ -33,6 +35,7 @@ class FixturesCubit extends Cubit<FixturesState> {
     required String receiveDate,
     required String labName,
     required String drName,
+    required int price,
   }) {
     isLoading = true;
     emit(IsLoading());
@@ -44,6 +47,7 @@ class FixturesCubit extends Cubit<FixturesState> {
       'receiveDate': receiveDate,
       'labName': labName,
       'drName': drName,
+      'price': price,
     }).then((value) async {
       docId = value.id;
       await FirebaseFirestore.instance.collection('doctors').doc(drName).collection('fixtures').doc(docId).update({'id': docId}).then((value) {

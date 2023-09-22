@@ -12,7 +12,6 @@ class Fixtures extends StatefulWidget {
 
 class _FixturesState extends State<Fixtures> {
   String stringDate = 'Date';
-  final TextEditingController priceController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -134,7 +133,7 @@ class _FixturesState extends State<Fixtures> {
                         Expanded(
                           child: TextFormField(
                             keyboardType: TextInputType.number,
-                            controller: priceController,
+                            controller: cubit.priceController,
                             decoration: InputDecoration(
                                 filled: true,
                                 fillColor: Colors.grey[200],
@@ -172,7 +171,6 @@ class _FixturesState extends State<Fixtures> {
                         ),
                       ],
                     ),
-
                     const SizedBox(
                       height: 30,
                     ),
@@ -209,6 +207,7 @@ class _FixturesState extends State<Fixtures> {
                                 receiveDate: cubit.stringReceiveDate,
                                 labName: cubit.labNameController.text,
                                 drName: cubit.drNameValue!,
+                                price: int.parse(cubit.priceController.text),
                               );
                             },
                             child: const Text(
