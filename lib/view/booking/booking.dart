@@ -12,6 +12,8 @@ class Booking extends StatefulWidget {
 
 class _BookingState extends State<Booking> {
   String stringDate = 'التاريخ';
+  final TextEditingController priceController = TextEditingController();
+  final TextEditingController fileNoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -109,6 +111,50 @@ class _BookingState extends State<Booking> {
                     const SizedBox(
                       height: 30,
                     ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextFormField(
+                            keyboardType: TextInputType.number,
+                            controller: priceController,
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.grey[200],
+                                labelStyle: TextStyle(
+                                  color: Colors.grey[700],
+                                ),
+                                hintText: 'المبلغ',
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(color: Colors.blue),
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                border: OutlineInputBorder(borderRadius: BorderRadius.circular(50))),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: TextFormField(
+                            keyboardType: TextInputType.number,
+                            controller: fileNoController,
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.grey[200],
+                                labelStyle: TextStyle(
+                                  color: Colors.grey[700],
+                                ),
+                                hintText: 'رقم الملف',
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(color: Colors.blue),
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                border: OutlineInputBorder(borderRadius: BorderRadius.circular(50))),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20,),
                     Row(
                       children: [
                         Expanded(

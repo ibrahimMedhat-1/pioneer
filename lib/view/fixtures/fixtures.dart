@@ -12,6 +12,7 @@ class Fixtures extends StatefulWidget {
 
 class _FixturesState extends State<Fixtures> {
   String stringDate = 'Date';
+  final TextEditingController priceController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -131,25 +132,21 @@ class _FixturesState extends State<Fixtures> {
                     Row(
                       children: [
                         Expanded(
-                          child: Container(
-                            height: 65,
-                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: Colors.blue),
-                            child: Center(
-                              child: DropDown(
-                                // isExpanded: true,
-                                showUnderline: false,
-                                items: const ["د/ محمد وحيد ", "د/ محمد خالد القاضي", "د/ حسام ابو الحلقان", "د/ لمياء خليفة", "د/ هبة ممدوح"],
-                                hint: const Text(style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white), 'الدكتور'),
-                                icon: const Icon(
-                                  size: 35,
-                                  Icons.expand_more,
-                                  color: Colors.white,
+                          child: TextFormField(
+                            keyboardType: TextInputType.number,
+                            controller: priceController,
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.grey[200],
+                                labelStyle: TextStyle(
+                                  color: Colors.grey[700],
                                 ),
-                                onChanged: (value) {
-                                  cubit.drNameValue = value;
-                                },
-                              ),
-                            ),
+                                hintText: 'المبلغ',
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(color: Colors.blue),
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                border: OutlineInputBorder(borderRadius: BorderRadius.circular(50))),
                           ),
                         ),
                         const SizedBox(
@@ -174,6 +171,30 @@ class _FixturesState extends State<Fixtures> {
                           ),
                         ),
                       ],
+                    ),
+
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Container(
+                      height: 65,
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: Colors.blue),
+                      child: Center(
+                        child: DropDown(
+                          // isExpanded: true,
+                          showUnderline: false,
+                          items: const ["د/ محمد وحيد ", "د/ محمد خالد القاضي", "د/ حسام ابو الحلقان", "د/ لمياء خليفة", "د/ هبة ممدوح"],
+                          hint: const Text(style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white), 'الدكتور'),
+                          icon: const Icon(
+                            size: 35,
+                            Icons.expand_more,
+                            color: Colors.white,
+                          ),
+                          onChanged: (value) {
+                            cubit.drNameValue = value;
+                          },
+                        ),
+                      ),
                     ),
                     const SizedBox(
                       height: 30,

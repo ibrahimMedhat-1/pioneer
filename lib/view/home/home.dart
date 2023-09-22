@@ -29,35 +29,6 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 40),
                 Row(
                   children: [
-                    Expanded(
-                      child: Container(
-                        height: 70,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.blue,
-                        ),
-                        child: MaterialButton(
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (builder) => const DailyReport()));
-                          },
-                          child: const Row(
-                            children: [
-                              Expanded(
-                                child: Center(
-                                  child: Text(
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 22,
-                                      ),
-                                      'التقرير اليومى'),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
                     const SizedBox(width: 15),
                     Expanded(
                       child: Container(
@@ -145,29 +116,6 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                Container(
-                  height: 65,
-                  width: 500,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: Colors.blue,
-                  ),
-                  child: MaterialButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (builder) => const Archives()));
-                    },
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Center(
-                            child: Text(style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23), 'الارشيف '),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
