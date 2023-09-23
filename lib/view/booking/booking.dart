@@ -154,7 +154,9 @@ class _BookingState extends State<Booking> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Row(
                       children: [
                         Expanded(
@@ -213,6 +215,8 @@ class _BookingState extends State<Booking> {
                                 patientName: cubit.patientNameController.text,
                                 patientPhone: cubit.patientPhoneController.text,
                                 date: stringDate.toString(),
+                                price: int.parse(priceController.text),
+                                fileNo: int.parse(fileNoController.text),
                               );
                             },
                             child: const Text(

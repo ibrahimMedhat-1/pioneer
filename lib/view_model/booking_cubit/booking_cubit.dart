@@ -25,6 +25,8 @@ class BookingCubit extends Cubit<BookingState> {
     required String patientName,
     required String patientPhone,
     required String date,
+    required int fileNo,
+    required int price,
   }) {
     isLoading = true;
     emit(IsLoading());
@@ -35,8 +37,8 @@ class BookingCubit extends Cubit<BookingState> {
       'phoneNo': patientPhone,
       'drName': drName,
       'date': date,
-      'price': int.parse('0'),
-      'fileNo': int.parse('0'),
+      'price': price,
+      'fileNo': fileNo,
     }).then((value) async {
       docId = value.id;
       await FirebaseFirestore.instance.collection('doctors').doc(drName).collection('patients').doc(docId).update({'id': docId}).then((value) {
@@ -46,8 +48,8 @@ class BookingCubit extends Cubit<BookingState> {
           'drName': drName,
           'date': date,
           'id': docId,
-          'price': int.parse('0'),
-          'fileNo': int.parse('0'),
+          'price': price,
+          'fileNo': fileNo,
         }).then((value) {
           FirebaseFirestore.instance.collection('allDatesDoctor').doc(docId).set({
             'name': patientName,
@@ -55,8 +57,8 @@ class BookingCubit extends Cubit<BookingState> {
             'drName': drName,
             'date': date,
             'id': docId,
-            'price': int.parse('0'),
-            'fileNo': int.parse('0'),
+            'price': price,
+            'fileNo': fileNo,
           }).then((value) {
             patientNameController.text = '';
             patientPhoneController.text = '';
