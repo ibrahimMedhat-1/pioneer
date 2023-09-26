@@ -50,7 +50,12 @@ class FixturesCubit extends Cubit<FixturesState> {
       'price': price,
     }).then((value) async {
       docId = value.id;
-      await FirebaseFirestore.instance.collection('doctors').doc(drName).collection('fixtures').doc(docId).update({'id': docId}).then((value) {
+      await FirebaseFirestore.instance
+          .collection('doctors')
+          .doc(drName)
+          .collection('fixtures')
+          .doc(docId)
+          .update({'id': docId}).then((value) {
         FirebaseFirestore.instance.collection('allFixtures').doc(docId).set({
           'patientName': patientName,
           'printDate': printDate,

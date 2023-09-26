@@ -41,7 +41,12 @@ class BookingCubit extends Cubit<BookingState> {
       'fileNo': fileNo,
     }).then((value) async {
       docId = value.id;
-      await FirebaseFirestore.instance.collection('doctors').doc(drName).collection('patients').doc(docId).update({'id': docId}).then((value) {
+      await FirebaseFirestore.instance
+          .collection('doctors')
+          .doc(drName)
+          .collection('patients')
+          .doc(docId)
+          .update({'id': docId}).then((value) {
         FirebaseFirestore.instance.collection('allDates').doc(docId).set({
           'name': patientName,
           'phoneNo': patientPhone,
@@ -60,10 +65,20 @@ class BookingCubit extends Cubit<BookingState> {
             'price': price,
             'fileNo': fileNo,
           }).then((value) {
-            patientNameController.text = '';
-            patientPhoneController.text = '';
-            isLoading = false;
-            emit(PatientAddedSuccessfully());
+            FirebaseFirestore.instance.collection('allDatesDoctorPioneer').doc(docId).set({
+              'name': patientName,
+              'phoneNo': patientPhone,
+              'drName': drName,
+              'date': date,
+              'id': docId,
+              'price': price,
+              'fileNo': fileNo,
+            }).then((value) {
+              patientNameController.text = '';
+              patientPhoneController.text = '';
+              isLoading = false;
+              emit(PatientAddedSuccessfully());
+            });
           }).catchError((onError) {
             isLoading = false;
             emit(PatientAddedSuccessfully());

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pioneer/view/daily_report/daily_report.dart';
 
-import '../archives/archives.dart';
 import '../booking/booking.dart';
-import '../daily_report/daily_report.dart';
 import '../expenses/expenses.dart';
 import '../fixtures/fixtures.dart';
 
@@ -46,7 +45,9 @@ class HomeScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Center(
-                                  child: Text(style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23), 'المواعيد'),
+                                  child: Text(
+                                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23),
+                                      'المواعيد'),
                                 ),
                               ),
                             ],
@@ -105,7 +106,9 @@ class HomeScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Center(
-                                  child: Text(style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23), 'التركيبات '),
+                                  child: Text(
+                                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23),
+                                      'التركيبات '),
                                 ),
                               ),
                             ],
@@ -116,6 +119,37 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
+                Row(
+                  children: [
+                    const SizedBox(width: 15),
+                    Expanded(
+                      child: Container(
+                        height: 70,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.blue,
+                        ),
+                        child: MaterialButton(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (builder) => const DailyReport()));
+                          },
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Center(
+                                  child: Text(
+                                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23),
+                                      'التقرير الشهري'),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
